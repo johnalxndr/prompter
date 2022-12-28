@@ -1,0 +1,161 @@
+body {
+    background-color: black;
+    min-width: 600px!important;
+    min-height: 800px!important;
+  }
+#read-time{
+    color: white;
+}  
+#teleprompter-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+  }
+  
+  #teleprompter-window {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  
+  #teleprompter-text {
+    font-size: 2em;
+    line-height: 1.5em;
+    margin-top: 2em;
+    padding: 1em;
+    overflow: scroll;
+    color: white;
+  }
+  
+  #bottom-navbar {
+    display: flex;
+    align-items: center;
+    position: fixed;  /* Add this line to fix the control bar to the bottom of the page */
+    bottom: 0;  /* Add this line to fix the control bar to the bottom of the page */
+    left: 0;
+    right: 0;
+    width: 100%;  /* Add this line to make the control bar span the full width of the page */
+    background-color: black;  /* Add this line to give the control bar a background color */
+    z-index: 1;  /* Add this line to ensure that the control bar is always on top of other elements */
+    color: white;
+    position: fixed;
+  }
+  
+  #edit-button {
+    background-color: #4CAF50;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  #start-button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  #speed-slider {
+    width: 50%;
+    margin: 0 10px;
+    color: white;
+  }
+  #top-navbar {  /* Style the navbar element */
+    position: fixed;  /* Fix the navbar to the top of the page */
+    top: 0;  /* Fix the navbar to the top of the page */
+    left: 0;  /* Fix the navbar to the left of the page */
+    right: 0;  /* Fix the navbar to the right of the page */
+    height: 50px;  /* Set the height of the navbar */
+    background-color: black;  /* Add a background color to the navbar */
+    display: flex;  /* Use flexbox layout for the navbar */
+    align-items: center;  /* Align the elements in the navbar vertically */
+    z-index: 1;  /* Add this line to ensure that the navbar is always on top of other elements */
+    color: white;
+  }
+  
+  #read-time {  /* Style the read time element */
+    padding: 10px;  /* Add some padding to the read time element */
+  }
+  button {
+    /* Add common styles for all buttons here */
+    font-family: sans-serif;
+    font-size: 14px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  
+  button#stop-button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  #font-size-slider{
+    width:50%;
+    margin: 0 10px;
+    color: white;
+  }
+  #read-bar {
+    position: absolute;  /* Position the read bar element absolutely */
+    top: 10%;  /* Align the read bar element to the center of the teleprompter window vertically */
+    left: 0;  /* Align the read bar element to the left side of the teleprompter window horizontally */
+    right: 0;  /* Align the read bar element to the right side of the teleprompter window horizontally */
+    height: 3px;  /* Set the height of the read bar element to 1 pixel */
+    background-color: white;  /* Set the color of the read bar element to white */
+    z-index: 1;  /* Add this line to ensure that the read bar element is always on top of other elements */
+  }
+  #case-toggle{
+    background-color:grey;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 10px;
+  }
+  #timer-display{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    border: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 24px;
+    height: 30px;
+    padding: 5px;
+    width: 85px;
+    text-align: center;
+
+
+  }
+  #timer-input {
+    background-color: black;
+    color: white;
+    border-color: white;
+  }
+
+  .edit-mode-bg {
+    background-color: rgb(61, 61, 61);
+    border-radius: 1em;
+    margin: 1em;
+    border: 2px solid rgb(61, 61, 61);
+  }
+  
+  
