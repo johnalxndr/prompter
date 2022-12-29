@@ -45,7 +45,7 @@ body {
   }
   
   #edit-button {
-    background-color: #4CAF50;
+    background-color:grey;
     border: none;
     color: black;
     text-align: center;
@@ -57,7 +57,7 @@ body {
   }
   
   #start-button {
-    background-color: #f44336;
+    background-color: green;
     border: none;
     color: white;
     text-align: center;
@@ -72,6 +72,9 @@ body {
     margin: 0 10px;
     color: white;
   }
+
+    /*Top Navbar*/
+
   #top-navbar {  /* Style the navbar element */
     position: fixed;  /* Fix the navbar to the top of the page */
     top: 0;  /* Fix the navbar to the top of the page */
@@ -84,10 +87,33 @@ body {
     z-index: 1;  /* Add this line to ensure that the navbar is always on top of other elements */
     color: white;
   }
+
+  #timer-display{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    border: none;
+    border-radius: 35px;
+    color: white;
+    font-size: 24px;
+    height: 30px;
+    padding: 5px;
+    width: 85px;
+    text-align: center;
+  }
   
   #read-time {  /* Style the read time element */
     padding: 10px;  /* Add some padding to the read time element */
   }
+
+  #timer-input {
+    background-color: black;
+    color: white;
+    border-color: white;
+  }
+
+
   button {
     /* Add common styles for all buttons here */
     font-family: sans-serif;
@@ -129,27 +155,6 @@ body {
     cursor: pointer;
     font-size: 10px;
   }
-  #timer-display{
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    border: none;
-    border-radius: 35px;
-    color: white;
-    font-size: 24px;
-    height: 30px;
-    padding: 5px;
-    width: 85px;
-    text-align: center;
-
-
-  }
-  #timer-input {
-    background-color: black;
-    color: white;
-    border-color: white;
-  }
 
   .edit-mode-bg {
     background-color: rgb(61, 61, 61);
@@ -157,5 +162,10 @@ body {
     margin: 1em;
     border: 2px solid rgb(61, 61, 61);
   }
+#settings-button{
+  cursor: pointer;
+}
   
-  
+#settings-container{
+  display: none;
+}

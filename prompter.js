@@ -24,26 +24,27 @@ function updateScrollSpeed(event) {
 }
 
 //Run Teleprompter
-const startTeleprompter = () => {
+function startTeleprompter() {
     if (isTeleprompterRunning) {
         return;
-      }
-isTeleprompterRunning = true;
-startTimer(); 
-document.getElementById('stop-button').style.display = 'inline-block';
-document.getElementById('read-bar').style.display = 'block';  // Show the read bar element
+    }
+    isTeleprompterRunning = true;
+    startTimer();
+    document.getElementById('stop-button').style.display = 'inline-block';
+    document.getElementById('read-bar').style.display = 'block'; // Show the read bar element
+    document.getElementById('start-button').style.display = 'none'; //hide start button
 
-    
-  const teleprompterText = document.getElementById('teleprompter-text');
-  const teleprompterWindow = document.getElementById('teleprompter-window');
-  const totalHeight = teleprompterText.offsetHeight;
-  const windowHeight = teleprompterWindow.offsetHeight;
 
-  let currentPosition = teleprompterWindow.scrollTop;
-  const startPosition = windowHeight;
-  const endPosition = totalHeight;
+    const teleprompterText = document.getElementById('teleprompter-text');
+    const teleprompterWindow = document.getElementById('teleprompter-window');
+    const totalHeight = teleprompterText.offsetHeight;
+    const windowHeight = teleprompterWindow.offsetHeight;
 
-  function scrollTeleprompter() {
+    let currentPosition = teleprompterWindow.scrollTop;
+    const startPosition = windowHeight;
+    const endPosition = totalHeight;
+
+    function scrollTeleprompter() {
         console.log(`Current scroll speed: ${scrollSpeed}`); // Add this line to log the current scroll speed
         console.log(`Current position: ${currentPosition}`); // Add this line to log the current position
         console.log(`teleprompterWindow.scrollTop: ${teleprompterWindow.scrollTop}`);
@@ -54,15 +55,15 @@ document.getElementById('read-bar').style.display = 'block';  // Show the read b
         }
         teleprompterWindow.scrollTop = currentPosition;
     }
-  IntervalId = setInterval(scrollTeleprompter, 50);  // Call the scrollTeleprompter function every 50 milliseconds and store the interval ID
-};
+    IntervalId = setInterval(scrollTeleprompter, 50); // Call the scrollTeleprompter function every 50 milliseconds and store the interval ID
+}
 function stopTeleprompter() {
     document.getElementById('stop-button').style.display = 'none';
     stopTimer();
     isTeleprompterRunning = false; // Set the flag to false to indicate that the teleprompter is not running
     clearInterval(IntervalId); // Clear the interval to stop the teleprompter from scrolling
     document.getElementById('read-bar').style.display = 'none'; // Hide the read bar element
-    document.getElementById('read-bar').style.display = 'none'; // Hide the read bar element
+    document.getElementById('start-button').style.display = 'inline-block'; // Show the start button when the teleprompter is stopped
 }
 
 function toggleCase() {
@@ -106,6 +107,14 @@ function updateReadTime() {
 }
 updateReadTime();  // Call the updateReadTime function on start
 
+const settingsButton = document.getElementById('settings-button');
+const settingsContainer = document.getElementById('settings-container');
+
+settingsButton.addEventListener('click', () => {
+  settingsContainer.style.display = 'block';
+});
+
+
 
 document.getElementById('stop-button').style.display = 'none';
 document.getElementById('read-bar').style.display = 'none';
@@ -125,5 +134,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const fontSize = event.target.value;
     const teleprompterText = document.getElementById('teleprompter-text');
     teleprompterText.style.fontSize = `${fontSize}px`;
+
+  });
+  startButton.addEventListener('click', () => {
+    // Change the text and appearance of the start button
+    startButton.textContent = 'Stop';
+    startButton.classList.add('stop-button-style');
+  
+    // Start the teleprompter
+    startTeleprompter();
+  });
+  
+  stopButton.addEventListener('click', () => {
+    // Change the text and appearance of the start button back to its original state
+    startButton.textContent = 'Start';
+    startButton.classList.remove('stop-button-style');
+  
+    // Stop the teleprompter
+    stopTeleprompter();
   });
 });
