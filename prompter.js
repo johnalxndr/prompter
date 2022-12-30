@@ -67,14 +67,15 @@ function stopTeleprompter() {
 }
 
 function toggleCase() {
+    const checkbox = document.getElementById('case-toggle').firstElementChild;
     const teleprompterText = document.getElementById('teleprompter-text');
     const currentText = teleprompterText.textContent;
-    if (currentText === currentText.toUpperCase()) {
-        teleprompterText.textContent = currentText.toLowerCase();
+    if (checkbox.checked) {
+      teleprompterText.textContent = currentText.toLowerCase();
     } else {
-        teleprompterText.textContent = currentText.toUpperCase();
+      teleprompterText.textContent = currentText.toUpperCase();
     }
-}
+  }
  
 function startTimer() {
     const timerInput = document.getElementById('timer-input');
@@ -111,9 +112,14 @@ const settingsButton = document.getElementById('settings-button');
 const settingsContainer = document.getElementById('settings-container');
 
 settingsButton.addEventListener('click', () => {
-  settingsContainer.style.display = 'block';
-});
-
+    if (settingsContainer.style.display === 'none') {
+      settingsContainer.style.display = 'block';
+      settingsButton.textContent = 'Close Settings';
+    } else {
+      settingsContainer.style.display = 'none';
+      settingsButton.textContent = 'Settings';
+    }
+  });
 
 
 document.getElementById('stop-button').style.display = 'none';
@@ -122,8 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const editButton = document.getElementById('edit-button');
   const startButton = document.getElementById('start-button');
   const stopButton = document.getElementById('stop-button');
-  const caseToggleButton = document.getElementById('case-toggle');
-  caseToggleButton.addEventListener('click', toggleCase);
+  const checkbox = document.getElementById('case-toggle').firstElementChild;
+checkbox.addEventListener('change', toggleCase);
   const speedSlider = document.getElementById('speed-slider');
   const fontSizeSlider = document.getElementById('font-size-slider');
   editButton.addEventListener('click', toggleEditMode);
