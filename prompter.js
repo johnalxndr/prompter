@@ -4,7 +4,6 @@ let isTeleprompterRunning = false;
 let IntervalId;
 let timerIntervalId; 
 
-
 function toggleEditMode() {
     editMode = !editMode;
     const teleprompterText = document.getElementById('teleprompter-text');
