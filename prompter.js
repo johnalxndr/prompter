@@ -32,9 +32,12 @@ function startTeleprompter() {
     document.getElementById('stop-button').style.display = 'inline-block';
     document.getElementById('read-bar').style.display = 'block'; // Show the read bar element
     document.getElementById('start-button').style.display = 'none'; //hide start button
-
-
+    
+    editMode = false;
     const teleprompterText = document.getElementById('teleprompter-text');
+    teleprompterText.contentEditable = false;
+    teleprompterText.classList.remove('edit-mode-bg');
+    
     const teleprompterWindow = document.getElementById('teleprompter-window');
     const totalHeight = teleprompterText.offsetHeight;
     const windowHeight = teleprompterWindow.offsetHeight;
@@ -44,9 +47,6 @@ function startTeleprompter() {
     const endPosition = totalHeight;
 
     function scrollTeleprompter() {
-        console.log(`Current scroll speed: ${scrollSpeed}`); // Add this line to log the current scroll speed
-        console.log(`Current position: ${currentPosition}`); // Add this line to log the current position
-        console.log(`teleprompterWindow.scrollTop: ${teleprompterWindow.scrollTop}`);
         const increment = (scrollSpeed / 60) * (50 / 1000);
         currentPosition += increment; // Increment the current position by the desired amount based on the scroll speed
         if (currentPosition >= endPosition) {
@@ -70,13 +70,13 @@ function toggleCase() {
     const teleprompterText = document.getElementById('teleprompter-text');
     const currentText = teleprompterText.textContent;
     if (checkbox.checked) {
-      teleprompterText.textContent = currentText.toLowerCase();
-    } else {
       teleprompterText.textContent = currentText.toUpperCase();
+    } else {
+      teleprompterText.textContent = currentText.toLowerCase();
     }
   }
  
-function startTimer() {
+  function startTimer() {
     const timerInput = document.getElementById('timer-input');
     const timerDisplay = document.getElementById('timer-display');
     let timerValue = parseInt(timerInput.value, 10) * 60; // Convert the time limit from minutes to seconds
@@ -84,27 +84,34 @@ function startTimer() {
         timerValue--; // Decrement the timer value by 1 second
 
         // Update the timer display
-        const minutes = Math.floor(timerValue / 60);
-        const seconds = timerValue % 60;
-        timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        if (timerValue === 0) {
-            clearInterval(timerIntervalId); // Clear the interval when the timer reaches 0
+        let minutes = Math.floor(timerValue / 60);
+        let seconds = timerValue % 60;
+        if (timerValue <= 0) {
+          timerDisplay.textContent = `-${Math.abs(minutes)}:${Math.abs(seconds).toString().padStart(2, '0')}`;
+          timerValue = Math.abs(timerValue); // Make the timer value positive again so it keeps counting up
+        } else {
+          timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
         }
+        if (timerValue <= 0) {
+          clearInterval(timerIntervalId);
+          timerDisplay.classList.add('timer-expired'); // Add the 'timer-expired' class to the timer element
+        }
+        
     }, 1000);
 }
 function stopTimer() {
     clearInterval(timerIntervalId); // Clear the interval to stop the timer
 }
-  
 
 function updateReadTime() {
-    const teleprompterText = document.getElementById('teleprompter-text');
-    const readTimeElement = document.getElementById('read-time');
-    const wordsPerMinute = 180; // Adjust this value to change the read time calculation
-    const numWords = teleprompterText.textContent.split(' ').length;
-    const readTime = Math.ceil(numWords / wordsPerMinute);
-    readTimeElement.textContent = `Duration: ${readTime} minutes`;
+  const teleprompterText = document.getElementById('teleprompter-text');
+  const readTimeElement = document.getElementById('read-time');
+  const wordsPerMinute = 180; // Adjust this value to change the read time calculation
+  const numWords = teleprompterText.textContent.split(' ').length;
+  const readTime = Math.ceil(numWords / wordsPerMinute);
+  document.getElementById('timer-input').value = readTime;
 }
+
 updateReadTime();  // Call the updateReadTime function on start
 
 const settingsButton = document.getElementById('settings-button');
@@ -113,7 +120,7 @@ const settingsContainer = document.getElementById('settings-container');
 settingsButton.addEventListener('click', () => {
     if (settingsContainer.style.display === 'none') {
       settingsContainer.style.display = 'block';
-      settingsButton.textContent = 'Close Settings';
+      settingsButton.textContent = 'Close';
     } else {
       settingsContainer.style.display = 'none';
       settingsButton.textContent = 'Settings';

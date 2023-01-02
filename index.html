@@ -2,12 +2,6 @@
     <head>
         <link rel="stylesheet" type="text/css" href="/prompter.css">
     </head>
-    <nav id="top-navbar">
-        <div id="read-time"></div>
-        <label for="timer-input">Speaker Timer:</label>
-        <input type="number" id="timer-input"> minutes
-        <span id="timer-display">00:00</span>
-      </nav>
   <div id="teleprompter-container">
     <div id="teleprompter-window">
       <div id="teleprompter-text">
@@ -24,8 +18,14 @@
     <button id="start-button">Start</button>
     <button id="stop-button">Stop</button>
     <button id="settings-button">Settings</button>
+    <div id="read-time"></div>
+    <label for="timer-input"></label>
+    <input type="number" id="timer-input"> min
+    <span id="timer-display">00:00</span>
     <div id="settings-container">
-      <label class="switch" id="case-toggle"><input type="checkbox"><span class="slider round"></span></label>
+      <label id="case-toggle">
+        <input type="checkbox">
+      </label>
       <label for="speed-slider">Scroll Speed:</label>
       <input type="range" min="500" max="2000" value="500" id="speed-slider">
       <label for="font-size-slider">Font Size:</label>

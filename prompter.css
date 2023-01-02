@@ -3,9 +3,7 @@ body {
     min-width: 600px!important;
     min-height: 800px!important;
   }
-#read-time{
-    color: white;
-}  
+
 #teleprompter-container {
     position: absolute;
     top: 0;
@@ -73,6 +71,38 @@ body {
     color: white;
   }
 
+#timer-display{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 24px;
+  height: 30px;
+  padding: 6px;
+  width: 64px;
+  text-align: center;
+  background-color: darkgreen;
+}
+#timer-display.timer-expired {
+  background-color: darkred;
+}
+
+
+#read-time { 
+  padding: 10px;
+  color: white;
+}
+
+#timer-input {
+  background-color: black;
+  color: white;
+  border-color: white;
+  width: 35px;
+}
+
     /*Top Navbar*/
 
   #top-navbar {  /* Style the navbar element */
@@ -88,30 +118,6 @@ body {
     color: white;
   }
 
-  #timer-display{
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    border: none;
-    border-radius: 35px;
-    color: white;
-    font-size: 24px;
-    height: 30px;
-    padding: 5px;
-    width: 85px;
-    text-align: center;
-  }
-  
-  #read-time {  /* Style the read time element */
-    padding: 10px;  /* Add some padding to the read time element */
-  }
-
-  #timer-input {
-    background-color: black;
-    color: white;
-    border-color: white;
-  }
 
 
   button {
@@ -140,7 +146,7 @@ body {
   }
   #read-bar {
     position: absolute;  /* Position the read bar element absolutely */
-    top: 10%;  /* Align the read bar element to the center of the teleprompter window vertically */
+    top: 5%;  /* Align the read bar element to the center of the teleprompter window vertically */
     left: 0;  /* Align the read bar element to the left side of the teleprompter window horizontally */
     right: 0;  /* Align the read bar element to the right side of the teleprompter window horizontally */
     height: 3px;  /* Set the height of the read bar element to 1 pixel */
@@ -160,66 +166,5 @@ body {
   
 #settings-container{
   display: none;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+  padding-top: 220px;
 }
