@@ -36,7 +36,7 @@ body {
     left: 0;
     right: 0;
     width: 100%;  /* Add this line to make the control bar span the full width of the page */
-    background-color: black;  /* Add this line to give the control bar a background color */
+    background-color: black;  
     z-index: 1;  /* Add this line to ensure that the control bar is always on top of other elements */
     color: white;
     position: fixed;
