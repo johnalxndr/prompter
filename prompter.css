@@ -65,11 +65,6 @@ body {
     cursor: pointer;
   }
   
-  #speed-slider {
-    width: 50%;
-    margin: 0 10px;
-    color: white;
-  }
 
 #timer-display{
   position: absolute;
@@ -118,8 +113,6 @@ body {
     color: white;
   }
 
-
-
   button {
     /* Add common styles for all buttons here */
     font-family: sans-serif;
@@ -140,10 +133,14 @@ body {
     cursor: pointer;
   }
   #font-size-slider{
-    width:50%;
-    margin: 0 10px;
+    width:25%;
     color: white;
   }
+  #speed-slider {
+    width: 25%;
+    color: white;
+  }
+
   #read-bar {
     position: absolute;  /* Position the read bar element absolutely */
     top: 5%;  /* Align the read bar element to the center of the teleprompter window vertically */
@@ -166,5 +163,4 @@ body {
   
 #settings-container{
   display: none;
-  padding-top: 220px;
 }

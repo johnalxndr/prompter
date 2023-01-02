@@ -32,7 +32,8 @@ function startTeleprompter() {
     document.getElementById('stop-button').style.display = 'inline-block';
     document.getElementById('read-bar').style.display = 'block'; // Show the read bar element
     document.getElementById('start-button').style.display = 'none'; //hide start button
-    
+    document.getElementById('timer-input').style.display = 'none'; //hide timer input 
+
     editMode = false;
     const teleprompterText = document.getElementById('teleprompter-text');
     teleprompterText.contentEditable = false;
@@ -58,6 +59,8 @@ function startTeleprompter() {
 }
 function stopTeleprompter() {
     document.getElementById('stop-button').style.display = 'none';
+    document.getElementById('timer-input').style.display = 'block'; //show timer
+
     stopTimer();
     isTeleprompterRunning = false; // Set the flag to false to indicate that the teleprompter is not running
     clearInterval(IntervalId); // Clear the interval to stop the teleprompter from scrolling
