@@ -1,4 +1,11 @@
 # Teleprompter
-## light weight in vanilla js 
+## light weight teleprompter app built in vanilla js
+### features include:
+- auto scrolling
+- adjustable scroll speed
+- speaking timer
+- timer is automatically calculated based on an average WPM of 180
+- timer is adjustable
+
 [Demo App](https://johnalxndr.github.io/prompter/).
 
