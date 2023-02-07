@@ -82,11 +82,10 @@ function toggleCase() {
   function startTimer() {
     const timerInput = document.getElementById('timer-input');
     const timerDisplay = document.getElementById('timer-display');
-    let timerValue = parseInt(timerInput.value, 10) * 60; // Convert the time limit from minutes to seconds
+    let timerValue = parseInt(timerInput.value, 10) * 60; 
     timerIntervalId = setInterval(() => {
-        timerValue--; // Decrement the timer value by 1 second
+        timerValue--; 
 
-        // Update the timer display
         let minutes = Math.floor(timerValue / 60);
         let seconds = timerValue % 60;
         if (timerValue <= 0) {
